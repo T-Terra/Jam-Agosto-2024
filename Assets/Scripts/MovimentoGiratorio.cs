@@ -5,21 +5,14 @@ using UnityEngine;
 
 public class MovimentoGiratorio : MonoBehaviour
 {
-     public Transform centerPoint; // Ponto central ao redor do qual o objeto se moverá
     public float radius = 5f; // Raio do movimento circular
-    public float angularSpeed = 2f; // Velocidade angular (em radianos por segundo)
+    public float angularSpeed = 1f; // Velocidade angular (em radianos por segundo)
 
     private float angle = 0f;
 
     public float cooldown = 0;
 
     public bool troca = false;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -34,13 +27,11 @@ public class MovimentoGiratorio : MonoBehaviour
         float direction = troca ? -1f : 1f; // Determina a direção com base no estado de isReversed
         angle += direction * angularSpeed * Time.deltaTime;
 
-        // Calcula a nova posição do objeto usando seno e cosseno
-        float x = Mathf.Cos(angle) * radius;
-        float y = Mathf.Sin(angle) * radius;
+        // Cria um novo vetor para representar a rotação no eixo Z (ou qualquer outro eixo)
+        Vector3 rotationAxis = new Vector3(0, 0, 1); // Eixo Z como exemplo
 
-        // Atualiza a posição do objeto, mantendo a profundidade (z) original
-        transform.position = new Vector3(centerPoint.position.x + x, centerPoint.position.y + y, transform.position.z);
-    
+        // Aplica a rotação ao redor do eixo definido
+        transform.Rotate(rotationAxis, angle * direction);
     }
 
     void Sorteio()
@@ -50,7 +41,7 @@ public class MovimentoGiratorio : MonoBehaviour
         if (cooldown <= 0)
         {
             troca = !troca;
-            cooldown = Random.Range(3,6);
+            cooldown = Random.Range(6,8);
         }
     }
 
@@ -60,7 +51,4 @@ public class MovimentoGiratorio : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
-
-
 }
