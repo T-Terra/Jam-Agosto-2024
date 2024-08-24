@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class MovimentoGiratorio : MonoBehaviour
 {
-    private Scene currentScene;
     public float radius = 5f; // Raio do movimento circular
     public float angularSpeed = 1f; // Velocidade angular (em radianos por segundo)
 
@@ -18,17 +17,9 @@ public class MovimentoGiratorio : MonoBehaviour
 
     public bool troca = true;
 
-     void Start()
+    void Start()
     {
-        currentScene = SceneManager.GetActiveScene();
-        if (currentScene.name == "Fase1" || currentScene.name == "Fase2" || currentScene.name == "Fase3" || currentScene.name == "Fase6" || currentScene.name == "Fase10")
-        {
-            troca = true;
-        }
-        else if (currentScene.name == "Fase4" || currentScene.name == "Fase5" || currentScene.name == "Fase7")
-        {
-            troca = !troca;
-        }
+        
 
 
     }
@@ -36,16 +27,16 @@ public class MovimentoGiratorio : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(currentScene.name);
-        if (currentScene.name == "Fase8" || currentScene.name == "Fase9" || currentScene.name == "FaseInfinita")
-        {
-            Sorteio();
-            MovimentoAcelerado();
-        }
-        else 
+        MovimentoSimples();
+        /*if (SpawnManager.Instance.level == 1)
         {
             MovimentoSimples();
         }
+        else 
+        {
+            Sorteio();
+            MovimentoAcelerado();
+        }*/
         
     }
 
