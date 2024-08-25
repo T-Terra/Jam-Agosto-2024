@@ -1,10 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class PlayerTongue : MonoBehaviour
@@ -19,11 +14,8 @@ public class PlayerTongue : MonoBehaviour
     public bool CanAtk = true;
 
     //da animação de "ataque"
-    public PlayerAnimationController playerAnim;
+    private Animator playerAnim;
     SpawnManager SpawnManager_;
-
-    
-
 
     private void Awake()
     {
@@ -39,6 +31,7 @@ public class PlayerTongue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerAnim = this.gameObject.GetComponent<Animator>();
         streak = 1;
         SpawnManager_ = gameObject.GetComponent<SpawnManager>();
         //level_.text = "Level " + SpawnManager_.level.ToString(); 
@@ -49,15 +42,12 @@ public class PlayerTongue : MonoBehaviour
     {
         Attack();
         Cooldown();
-        score.text = "Pontuação: " + points.ToString();
+        score.text = "Score: " + points.ToString();
         //level_.text = "Level " + SpawnManager_.level.ToString();
         /*if (SpawnManager_.timer == 0)
         {
             SceneManager.LoadScene("GameOver");
         }*/
-        
-        //Tentativa de puxar a animação ao realizar o input.
-        playerAnim.PlayAnimation("Cat_Attack");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -81,12 +71,10 @@ public class PlayerTongue : MonoBehaviour
         if(Input.GetMouseButtonDown(0) && CanAtk == true)
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.down, ForceMode2D.Impulse);
+            playerAnim.SetBool("Atk", true);
             Invoke(nameof(Return), 0.3f);
             CanAtk = false;
             cooldown = 0.5f;
-
-           
-        
         }
         
     }
@@ -94,6 +82,7 @@ public class PlayerTongue : MonoBehaviour
     private void Return()
     {
         gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up, ForceMode2D.Impulse);
+        playerAnim.SetBool("Atk", false);
     }
 
     void Cooldown()
