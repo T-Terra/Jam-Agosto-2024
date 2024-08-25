@@ -66,7 +66,7 @@ public class PlayerTongue : MonoBehaviour
 
     private void Attack()
     {
-        if(Input.GetMouseButtonDown(0) && CanAtk == true)
+        if((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)) && CanAtk == true)
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.down, ForceMode2D.Impulse);
             playerAnim.SetBool("Atk", true);
