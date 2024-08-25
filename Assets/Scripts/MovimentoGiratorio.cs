@@ -4,7 +4,7 @@ using UnityEngine;
 public class MovimentoGiratorio : MonoBehaviour
 {
     public float radius = 5f; // Raio do movimento circular
-    public float angularSpeed = 1f; // Velocidade angular (em radianos por segundo)
+    public float angularSpeed; // Velocidade angular (em radianos por segundo)
 
     private float angle = 0f;
 
@@ -24,15 +24,18 @@ public class MovimentoGiratorio : MonoBehaviour
     {
         if (SpawnManager_.level >= 11)
         {
+            angularSpeed = 0.53f;
             Sorteio();
             MovimentoAcelerado();
         }
         else if (SpawnManager_.level == 4 ||SpawnManager_.level == 5 || SpawnManager_.level == 7 )
         {
+            angularSpeed = 0.2f;
             MovimentoSimplesAntiHorario();
         }
         else if (SpawnManager_.level == 8 ||SpawnManager_.level == 9)
         {
+            angularSpeed = 0.4f;
             Sorteio();
             MovimentoSimplesAlternado();
         }

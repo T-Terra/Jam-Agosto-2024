@@ -16,6 +16,7 @@ public class SpawnManager : MonoBehaviour
     public int level;
     public int CountDunot = 0;
     public int CountBomb = 0;
+    public float DirectionRotateItens;
     private GameObject[] DunotObj;
     private GameObject[] BombObj;
     
@@ -32,7 +33,7 @@ public class SpawnManager : MonoBehaviour
     {
         DestroyItens();
         timer -= 1 * Time.deltaTime;
-        
+        Rotation_(DirectionRotateItens);
     }
 
     public void SpawnItens()
@@ -74,6 +75,11 @@ public class SpawnManager : MonoBehaviour
             Invoke(nameof(SpawnItens), 1f);
             timer = 30f;
         }
+    }
+
+    public void Rotation_( float Direction )
+    {
+        this.transform.Rotate(new Vector3(0, 0, Direction), Space.World);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

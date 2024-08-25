@@ -7,7 +7,7 @@ public class PlayerTongue : MonoBehaviour
     public static PlayerTongue Instance { get; private set; }
 
     public TextMeshProUGUI score;
-    //public Text level_;
+    public TextMeshProUGUI level_;
     public int points = 0;
     private int streak; //Usar para mecânica de aumentar pontuação conforme acertos consecutivos.
     public float cooldown = 0.5f;
@@ -33,8 +33,7 @@ public class PlayerTongue : MonoBehaviour
     {
         playerAnim = this.gameObject.GetComponent<Animator>();
         streak = 1;
-        SpawnManager_ = gameObject.GetComponent<SpawnManager>();
-        //level_.text = "Level " + SpawnManager_.level.ToString(); 
+        SpawnManager_ = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
     }
 
     // Update is called once per frame
@@ -43,6 +42,7 @@ public class PlayerTongue : MonoBehaviour
         Attack();
         Cooldown();
         score.text = "Score: " + points.ToString();
+        level_.text = $"AREA {SpawnManager_.level.ToString()}";
         //level_.text = "Level " + SpawnManager_.level.ToString();
         /*if (SpawnManager_.timer == 0)
         {

@@ -226,6 +226,7 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
+  DirectionRotateItens: -0.8
 --- !u!1 &203647342
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 5
-  angularSpeed: 0.07
+  angularSpeed: 0.15
   cooldown: 0
   troca: 0
 --- !u!1 &233932557
@@ -439,6 +440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: {fileID: 1803522015}
+  level_: {fileID: 1667152385}
   points: 0
   cooldown: 0.5
   CanAtk: 1
@@ -727,6 +729,7 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
+  DirectionRotateItens: -0.8
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,6 +926,7 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
+  DirectionRotateItens: -0.8
 --- !u!1 &631721859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1027,6 +1031,7 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
+  DirectionRotateItens: -0.8
 --- !u!1 &1205772634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,6 +1160,7 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
+  DirectionRotateItens: -0.8
 --- !u!212 &1235552337
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1259,6 +1265,7 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
+  DirectionRotateItens: -0.8
 --- !u!212 &1243359721
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1558,6 +1565,7 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
+  DirectionRotateItens: -0.8
 --- !u!1 &1667152383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2148,6 +2156,7 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
+  DirectionRotateItens: -0.8
 --- !u!1 &2001261453
 GameObject:
   m_ObjectHideFlags: 0
@@ -2200,6 +2209,7 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
+  DirectionRotateItens: -0.8
 --- !u!212 &2001261456
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2304,6 +2314,7 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
+  DirectionRotateItens: -0.8
 --- !u!212 &2080495014
 SpriteRenderer:
   m_ObjectHideFlags: 0
