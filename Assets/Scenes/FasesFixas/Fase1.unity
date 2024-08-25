@@ -222,11 +222,10 @@ MonoBehaviour:
   BombPrefab: {fileID: 4920238796053448140, guid: 3e9f861ed56983d458d2a74b435aa95f, type: 3}
   DunotPrefab: {fileID: 381596508575805695, guid: b3fd89e37bdfc4942a513e59b6b5eeed, type: 3}
   EmpityPrefab: {fileID: 757496034395034522, guid: 78f4537c2e98f2a46ba44e93ed2152ca, type: 3}
+  timer: 30
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!1 &203647342
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,6 +348,9 @@ GameObject:
   - component: {fileID: 233932559}
   - component: {fileID: 233932558}
   - component: {fileID: 233932560}
+  - component: {fileID: 233932561}
+  - component: {fileID: 233932562}
+  - component: {fileID: 233932563}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -435,6 +437,94 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2e06be3a78c7540bdae993856c20b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &233932561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233932557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ce23cbc7b4f3944adf9fc463747d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: {fileID: 1803522015}
+  points: 0
+  cooldown: 0.5
+  CanAtk: 1
+--- !u!50 &233932562
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233932557}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.1
+  m_LinearDrag: 4
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &233932563
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233932557}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.009404212, y: -0.258617}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.45455343, y: 0.21944684}
+  m_EdgeRadius: 0
 --- !u!1 &452599392
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,11 +700,10 @@ MonoBehaviour:
   BombPrefab: {fileID: 4920238796053448140, guid: 3e9f861ed56983d458d2a74b435aa95f, type: 3}
   DunotPrefab: {fileID: 381596508575805695, guid: b3fd89e37bdfc4942a513e59b6b5eeed, type: 3}
   EmpityPrefab: {fileID: 757496034395034522, guid: 78f4537c2e98f2a46ba44e93ed2152ca, type: 3}
+  timer: 30
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,11 +896,10 @@ MonoBehaviour:
   BombPrefab: {fileID: 4920238796053448140, guid: 3e9f861ed56983d458d2a74b435aa95f, type: 3}
   DunotPrefab: {fileID: 381596508575805695, guid: b3fd89e37bdfc4942a513e59b6b5eeed, type: 3}
   EmpityPrefab: {fileID: 757496034395034522, guid: 78f4537c2e98f2a46ba44e93ed2152ca, type: 3}
+  timer: 30
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!1 &631721859
 GameObject:
   m_ObjectHideFlags: 0
@@ -912,11 +1000,10 @@ MonoBehaviour:
   BombPrefab: {fileID: 4920238796053448140, guid: 3e9f861ed56983d458d2a74b435aa95f, type: 3}
   DunotPrefab: {fileID: 381596508575805695, guid: b3fd89e37bdfc4942a513e59b6b5eeed, type: 3}
   EmpityPrefab: {fileID: 757496034395034522, guid: 78f4537c2e98f2a46ba44e93ed2152ca, type: 3}
+  timer: 30
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!1 &1205772634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,11 +1127,10 @@ MonoBehaviour:
   BombPrefab: {fileID: 4920238796053448140, guid: 3e9f861ed56983d458d2a74b435aa95f, type: 3}
   DunotPrefab: {fileID: 381596508575805695, guid: b3fd89e37bdfc4942a513e59b6b5eeed, type: 3}
   EmpityPrefab: {fileID: 757496034395034522, guid: 78f4537c2e98f2a46ba44e93ed2152ca, type: 3}
+  timer: 30
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!212 &1235552337
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1145,11 +1231,10 @@ MonoBehaviour:
   BombPrefab: {fileID: 4920238796053448140, guid: 3e9f861ed56983d458d2a74b435aa95f, type: 3}
   DunotPrefab: {fileID: 381596508575805695, guid: b3fd89e37bdfc4942a513e59b6b5eeed, type: 3}
   EmpityPrefab: {fileID: 757496034395034522, guid: 78f4537c2e98f2a46ba44e93ed2152ca, type: 3}
+  timer: 30
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!212 &1243359721
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1358,7 +1443,7 @@ GameObject:
   - component: {fileID: 1632379742}
   m_Layer: 0
   m_Name: SpawnPoint
-  m_TagString: Untagged
+  m_TagString: SpawnManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1445,11 +1530,10 @@ MonoBehaviour:
   BombPrefab: {fileID: 4920238796053448140, guid: 3e9f861ed56983d458d2a74b435aa95f, type: 3}
   DunotPrefab: {fileID: 381596508575805695, guid: b3fd89e37bdfc4942a513e59b6b5eeed, type: 3}
   EmpityPrefab: {fileID: 757496034395034522, guid: 78f4537c2e98f2a46ba44e93ed2152ca, type: 3}
+  timer: 30
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!1 &1667152383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2038,11 +2122,10 @@ MonoBehaviour:
   BombPrefab: {fileID: 4920238796053448140, guid: 3e9f861ed56983d458d2a74b435aa95f, type: 3}
   DunotPrefab: {fileID: 381596508575805695, guid: b3fd89e37bdfc4942a513e59b6b5eeed, type: 3}
   EmpityPrefab: {fileID: 757496034395034522, guid: 78f4537c2e98f2a46ba44e93ed2152ca, type: 3}
+  timer: 30
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!1 &2001261453
 GameObject:
   m_ObjectHideFlags: 0
@@ -2091,11 +2174,10 @@ MonoBehaviour:
   BombPrefab: {fileID: 4920238796053448140, guid: 3e9f861ed56983d458d2a74b435aa95f, type: 3}
   DunotPrefab: {fileID: 381596508575805695, guid: b3fd89e37bdfc4942a513e59b6b5eeed, type: 3}
   EmpityPrefab: {fileID: 757496034395034522, guid: 78f4537c2e98f2a46ba44e93ed2152ca, type: 3}
+  timer: 30
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!212 &2001261456
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2196,11 +2278,10 @@ MonoBehaviour:
   BombPrefab: {fileID: 4920238796053448140, guid: 3e9f861ed56983d458d2a74b435aa95f, type: 3}
   DunotPrefab: {fileID: 381596508575805695, guid: b3fd89e37bdfc4942a513e59b6b5eeed, type: 3}
   EmpityPrefab: {fileID: 757496034395034522, guid: 78f4537c2e98f2a46ba44e93ed2152ca, type: 3}
+  timer: 30
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!212 &2080495014
 SpriteRenderer:
   m_ObjectHideFlags: 0

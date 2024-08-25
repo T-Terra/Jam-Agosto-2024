@@ -5,13 +5,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerTongue : MonoBehaviour
 {
     public static PlayerTongue Instance { get; private set; }
 
-    public Text score;
-    public Text level_;
+    public TextMeshProUGUI score;
+    //public Text level_;
     public int points = 0;
     private int streak; //Usar para mecânica de aumentar pontuação conforme acertos consecutivos.
     public float cooldown = 0.5f;
@@ -37,7 +38,7 @@ public class PlayerTongue : MonoBehaviour
     {
         streak = 1;
         SpawnManager_ = gameObject.GetComponent<SpawnManager>();
-        level_.text = "Level " + SpawnManager_.level.ToString(); 
+        //level_.text = "Level " + SpawnManager_.level.ToString(); 
     }
 
     // Update is called once per frame
@@ -46,11 +47,11 @@ public class PlayerTongue : MonoBehaviour
         Attack();
         Cooldown();
         score.text = "Pontuação: " + points.ToString();
-        level_.text = "Level " + SpawnManager_.level.ToString();
-        if (SpawnManager_.timer == 0)
+        //level_.text = "Level " + SpawnManager_.level.ToString();
+        /*if (SpawnManager_.timer == 0)
         {
             SceneManager.LoadScene("GameOver");
-        }
+        }*/
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
