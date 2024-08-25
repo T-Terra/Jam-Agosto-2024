@@ -17,6 +17,9 @@ public class PlayerTongue : MonoBehaviour
     private int streak; //Usar para mecânica de aumentar pontuação conforme acertos consecutivos.
     public float cooldown = 0.5f;
     public bool CanAtk = true;
+
+    //da animação de "ataque"
+    public PlayerAnimationController playerAnim;
     SpawnManager SpawnManager_;
 
     
@@ -52,6 +55,9 @@ public class PlayerTongue : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }*/
+        
+        //Tentativa de puxar a animação ao realizar o input.
+        playerAnim.PlayAnimation("Cat_Attack");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -78,7 +84,11 @@ public class PlayerTongue : MonoBehaviour
             Invoke(nameof(Return), 0.3f);
             CanAtk = false;
             cooldown = 0.5f;
+
+           
+        
         }
+        
     }
 
     private void Return()

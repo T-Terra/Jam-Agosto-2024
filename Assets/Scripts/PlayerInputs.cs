@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerInputs : MonoBehaviour
 {
+
+
     // Update is called once per frame
     void Update()
     {
@@ -16,5 +18,7 @@ public class PlayerInputs : MonoBehaviour
         {
             print("Atirou!");
         }
+
     }
 }
+
