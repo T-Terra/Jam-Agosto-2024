@@ -14,13 +14,12 @@ public class SpawnManager : MonoBehaviour
     public int level;
     public int CountDunot = 0;
     public int CountBomb = 0;
-    public GameObject[] DunotObj;
-    public GameObject[] BombObj;
+    private GameObject[] DunotObj;
+    private GameObject[] BombObj;
 
     // Start is called before the first frame update
     void Start()
     {
-        level = 1;
         SpawnItens();
         InvokeRepeating(nameof(CheckQt), 0f, 1f);
     }
@@ -28,9 +27,7 @@ public class SpawnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(CountDunot);
         DestroyItens();
-
     }
 
     public void SpawnItens()
@@ -55,8 +52,6 @@ public class SpawnManager : MonoBehaviour
             {
                 Destroy(Bomb[i]);
             }
-
-            level += 1;
         }
 
     }
@@ -70,6 +65,7 @@ public class SpawnManager : MonoBehaviour
 
         if (CountDunot == 0 && CountBomb == 0)
         {
+            level++;
             Invoke(nameof(SpawnItens), 1f);
         }
     }

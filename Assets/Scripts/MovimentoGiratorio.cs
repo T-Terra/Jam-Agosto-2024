@@ -17,29 +17,26 @@ public class MovimentoGiratorio : MonoBehaviour
 
     public bool troca = true;
 
-    SpawnManager spawnManager_;
+    SpawnManager SpawnManager_;
 
     void Start()
     {
-        spawnManager_ = gameObject.GetComponent<SpawnManager>();
-
-
+        SpawnManager_ = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MovimentoSimples();
-        /*if (spawnManager_.level <= 2)
-        {
-            MovimentoSimples();
-        }
-        else 
+        if (SpawnManager_.level >= 11)
         {
             Sorteio();
             MovimentoAcelerado();
-        }*/
-        
+        }
+        else
+        {
+            print(SpawnManager_.level);
+            MovimentoSimples();
+        }
     }
 
     void MovimentoAcelerado()
