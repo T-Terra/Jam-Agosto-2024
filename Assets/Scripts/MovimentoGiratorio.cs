@@ -17,9 +17,11 @@ public class MovimentoGiratorio : MonoBehaviour
 
     public bool troca = true;
 
+    SpawnManager spawnManager_;
+
     void Start()
     {
-        
+        spawnManager_ = gameObject.GetComponent<SpawnManager>();
 
 
     }
@@ -28,7 +30,7 @@ public class MovimentoGiratorio : MonoBehaviour
     void Update()
     {
         MovimentoSimples();
-        /*if (SpawnManager.Instance.level == 1)
+        /*if (spawnManager_.level <= 2)
         {
             MovimentoSimples();
         }
@@ -77,10 +79,4 @@ public class MovimentoGiratorio : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Tongue"){
-            Destroy(this.gameObject);
-        }
-    }
 }

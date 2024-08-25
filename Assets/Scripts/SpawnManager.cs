@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -10,7 +11,7 @@ public class SpawnManager : MonoBehaviour
     private int MinRange = 0;
     private int MaxRange = 11;
 
-    public int level = 1;
+    public int level;
     public int CountDunot = 0;
     public int CountBomb = 0;
     public GameObject[] DunotObj;
@@ -19,6 +20,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        level = 1;
         SpawnItens();
         InvokeRepeating(nameof(CheckQt), 0f, 1f);
     }
@@ -29,13 +31,6 @@ public class SpawnManager : MonoBehaviour
         print(CountDunot);
         DestroyItens();
 
-        if (Input.GetMouseButton(0))
-        {
-            foreach (GameObject obj in DunotObj)
-            {
-                Destroy(obj);
-            }
-        }
     }
 
     public void SpawnItens()
@@ -60,7 +55,10 @@ public class SpawnManager : MonoBehaviour
             {
                 Destroy(Bomb[i]);
             }
+
+            level += 1;
         }
+
     }
 
     public void CheckQt()
@@ -73,6 +71,14 @@ public class SpawnManager : MonoBehaviour
         if (CountDunot == 0 && CountBomb == 0)
         {
             Invoke(nameof(SpawnItens), 1f);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(GameObject.FindGameObjectWithTag("Donut"));
         }
     }
 }
