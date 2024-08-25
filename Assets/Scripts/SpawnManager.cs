@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private GameObject BombPrefab;
@@ -10,12 +11,14 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject EmpityPrefab;
     private int MinRange = 0;
     private int MaxRange = 11;
+    public float timer = 30f;
 
     public int level;
     public int CountDunot = 0;
     public int CountBomb = 0;
     private GameObject[] DunotObj;
     private GameObject[] BombObj;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +31,8 @@ public class SpawnManager : MonoBehaviour
     void Update()
     {
         DestroyItens();
+        timer -= 1 * Time.deltaTime;
+        
     }
 
     public void SpawnItens()
@@ -67,6 +72,7 @@ public class SpawnManager : MonoBehaviour
         {
             level++;
             Invoke(nameof(SpawnItens), 1f);
+            timer = 30f;
         }
     }
 
