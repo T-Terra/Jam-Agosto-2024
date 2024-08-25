@@ -225,8 +225,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!1 &203647342
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +450,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 2084301207}
   points: 0
+  cooldown: 2
+  CanAtk: 1
 --- !u!50 &233932562
 Rigidbody2D:
   serializedVersion: 4
@@ -627,8 +627,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,8 +822,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!1 &631721859
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,8 +925,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!1 &677721573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,8 +1078,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!212 &1235552337
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1189,8 +1181,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!212 &1243359721
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1414,8 +1404,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!1 &1872390456
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,8 +1507,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!1 &2001261453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,8 +1558,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!212 &2001261456
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1677,8 +1661,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!212 &2080495014
 SpriteRenderer:
   m_ObjectHideFlags: 0

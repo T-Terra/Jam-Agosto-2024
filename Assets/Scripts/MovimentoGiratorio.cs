@@ -42,7 +42,7 @@ public class MovimentoGiratorio : MonoBehaviour
     {
         // Calcula o ângulo baseado no tempo e na velocidade angular
         float direction = troca ? -1f : 1f; // Determina a direção com base no estado de troca
-        angle += direction * angularSpeed * Time.deltaTime; //Operador += dá aceleração
+        angle += direction * angularSpeed * Time.deltaTime / 2; //Operador += dá aceleração
 
         // Cria um novo vetor para representar a rotação no eixo Z (ou qualquer outro eixo)
         Vector3 rotationAxis = new Vector3(0, 0, 1); // Eixo Z como exemplo
@@ -71,7 +71,7 @@ public class MovimentoGiratorio : MonoBehaviour
         if (cooldown <= 0)
         {
             troca = !troca;
-            cooldown = Random.Range(6,8);
+            cooldown = Random.Range(10,15);
         }
     }
 
