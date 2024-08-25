@@ -225,8 +225,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!1 &203647342
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,6 +436,94 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2e06be3a78c7540bdae993856c20b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &233932561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233932557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ce23cbc7b4f3944adf9fc463747d83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: {fileID: 2084301207}
+  points: 0
+  cooldown: 0.5
+  CanAtk: 1
+--- !u!50 &233932562
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233932557}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.1
+  m_LinearDrag: 4
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &233932563
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233932557}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.007017046, y: -0.28769904}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.438636, y: 0.17198825}
+  m_EdgeRadius: 0
 --- !u!1 &452599392
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,8 +702,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -813,8 +897,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!1 &631721859
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,8 +1000,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!1 &1205772634
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,8 +1126,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!212 &1235552337
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1151,8 +1229,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!212 &1243359721
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1451,8 +1527,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!1 &1667152383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2044,8 +2118,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!1 &2001261453
 GameObject:
   m_ObjectHideFlags: 0
@@ -2097,8 +2169,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!212 &2001261456
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2202,8 +2272,6 @@ MonoBehaviour:
   level: 1
   CountDunot: 0
   CountBomb: 0
-  DunotObj: []
-  BombObj: []
 --- !u!212 &2080495014
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2286,7 +2354,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 677721577}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2339,10 +2407,10 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1518971230}
   - {fileID: 519420032}
   - {fileID: 1829367865}
   - {fileID: 233932559}
   - {fileID: 203647344}
   - {fileID: 1800938662}
   - {fileID: 1607484707}
+  - {fileID: 2084301206}
