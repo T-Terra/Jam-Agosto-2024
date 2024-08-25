@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using DentedPixel;
+using System.Threading;
 
 
 public class SpawnManager : MonoBehaviour
@@ -22,6 +24,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject gameover_;
     public GameObject spawn;
     public GameObject player;
+    public GameObject BarTimer;
     PlayerTongue playerTongue;
 
 
@@ -33,6 +36,7 @@ public class SpawnManager : MonoBehaviour
         playerTongue = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerTongue>();
         SpawnItens();
         InvokeRepeating(nameof(CheckQt), 0f, 1f);
+        AnimateBar();
     }
 
     // Update is called once per frame
@@ -85,7 +89,15 @@ public class SpawnManager : MonoBehaviour
             level++;
             Invoke(nameof(SpawnItens), 1f);
             timer = 30f;
+            LeanTween.reset();
+            BarTimer.transform.localScale = new Vector3(1, 1, 1);
+            AnimateBar();
         }
+    }
+
+    public void AnimateBar()
+    {
+        LeanTween.scaleX(BarTimer, 0, timer);
     }
 
     public void Rotation_( float Direction )
@@ -102,6 +114,7 @@ public class SpawnManager : MonoBehaviour
     }
     private void GameOver()
     {
+        BarTimer.SetActive(false);
         spawn.SetActive(false);
         player.SetActive(false);
         gameover_.SetActive(true);
