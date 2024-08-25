@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 
 public class MovimentoGiratorio : MonoBehaviour
 {
+    SpawnManager SpawnManager_;
+
     public float radius = 5f; // Raio do movimento circular
     public float angularSpeed = 1f; // Velocidade angular (em radianos por segundo)
 
@@ -19,24 +21,22 @@ public class MovimentoGiratorio : MonoBehaviour
 
     void Start()
     {
-        
-
-
+        SpawnManager_ = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MovimentoSimples();
-        /*if (SpawnManager.Instance.level == 1)
-        {
-            MovimentoSimples();
-        }
-        else 
+        if (SpawnManager_.level >= 11)
         {
             Sorteio();
             MovimentoAcelerado();
-        }*/
+        }
+        else
+        {
+            print(SpawnManager_.level);
+            MovimentoSimples();
+        }
         
     }
 

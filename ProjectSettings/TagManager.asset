@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Donut
   - Bomb
+  - SpawnManager
   layers:
   - Default
   - TransparentFX
