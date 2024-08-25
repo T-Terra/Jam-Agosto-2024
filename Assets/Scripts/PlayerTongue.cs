@@ -12,6 +12,7 @@ public class PlayerTongue : MonoBehaviour
     private int streak; //Usar para mecânica de aumentar pontuação conforme acertos consecutivos.
     public float cooldown = 0.5f;
     public bool CanAtk = true;
+    public int bombHit;
 
     //da animação de "ataque"
     private Animator playerAnim;
@@ -43,11 +44,7 @@ public class PlayerTongue : MonoBehaviour
         Cooldown();
         score.text = "Score: " + points.ToString();
         level_.text = $"AREA {SpawnManager_.level.ToString()}";
-        //level_.text = "Level " + SpawnManager_.level.ToString();
-        /*if (SpawnManager_.timer == 0)
-        {
-            SceneManager.LoadScene("GameOver");
-        }*/
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -60,6 +57,7 @@ public class PlayerTongue : MonoBehaviour
         if (collision.gameObject.CompareTag("Bomb")){
             points -= 20;
             streak = 1;
+            bombHit += 1;
             Destroy(collision.gameObject);
         }
     }

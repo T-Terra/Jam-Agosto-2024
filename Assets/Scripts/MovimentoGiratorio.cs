@@ -65,7 +65,7 @@ public class MovimentoGiratorio : MonoBehaviour
         angle = direction * angularSpeed * radius;
 
         // Cria um novo vetor para representar a rotação no eixo Z (ou qualquer outro eixo)
-        Vector3 rotationAxis = new Vector3(0, 0, 1); // Eixo Z como exemplo
+        Vector3 rotationAxis = new Vector3(0, 0, 1 * direction); // Eixo Z como exemplo
 
         // Aplica a rotação ao redor do eixo definido
         transform.Rotate(rotationAxis, angle * direction);
@@ -78,7 +78,7 @@ public class MovimentoGiratorio : MonoBehaviour
         angle = direction * angularSpeed * radius;
 
         // Cria um novo vetor para representar a rotação no eixo Z (ou qualquer outro eixo)
-        Vector3 rotationAxis = new Vector3(0, 0, 1); // Eixo Z como exemplo
+        Vector3 rotationAxis = new Vector3(0, 0, 1 * direction); // Eixo Z como exemplo
 
         // Aplica a rotação ao redor do eixo definido
         transform.Rotate(rotationAxis, angle * direction);

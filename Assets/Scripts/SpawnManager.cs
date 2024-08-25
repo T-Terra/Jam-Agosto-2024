@@ -19,11 +19,18 @@ public class SpawnManager : MonoBehaviour
     public float DirectionRotateItens;
     private GameObject[] DunotObj;
     private GameObject[] BombObj;
+    public GameObject gameover_;
+    public GameObject spawn;
+    public GameObject player;
+    PlayerTongue playerTongue;
+
+
     
 
     // Start is called before the first frame update
     void Start()
     {
+        playerTongue = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerTongue>();
         SpawnItens();
         InvokeRepeating(nameof(CheckQt), 0f, 1f);
     }
@@ -34,6 +41,10 @@ public class SpawnManager : MonoBehaviour
         DestroyItens();
         timer -= 1 * Time.deltaTime;
         Rotation_(DirectionRotateItens);
+        if (timer <= 0 || playerTongue.bombHit >= 5 )
+        {
+            GameOver();
+        }
     }
 
     public void SpawnItens()
@@ -88,5 +99,11 @@ public class SpawnManager : MonoBehaviour
         {
             Destroy(GameObject.FindGameObjectWithTag("Donut"));
         }
+    }
+    private void GameOver()
+    {
+        spawn.SetActive(false);
+        player.SetActive(false);
+        gameover_.SetActive(true);
     }
 }
