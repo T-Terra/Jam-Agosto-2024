@@ -34,7 +34,6 @@ public class MovimentoGiratorio : MonoBehaviour
         }
         else
         {
-            print(SpawnManager_.level);
             MovimentoSimples();
         }
     }

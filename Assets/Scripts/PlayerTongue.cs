@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +12,8 @@ public class PlayerTongue : MonoBehaviour
     public Text score;
     public int points = 0;
     private int streak; //Usar para mecânica de aumentar pontuação conforme acertos consecutivos.
-
+    public float cooldown = 0.5f;
+    public bool CanAtk = true;
 
     private void Awake()
     {
@@ -33,6 +36,7 @@ public class PlayerTongue : MonoBehaviour
     void Update()
     {
         Attack();
+        Cooldown();
         score.text = "Pontuação: " + points.ToString();
     }
 
@@ -54,15 +58,27 @@ public class PlayerTongue : MonoBehaviour
 
     private void Attack()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && CanAtk == true)
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.down, ForceMode2D.Impulse);
             Invoke(nameof(Return), 0.3f);
+            CanAtk = false;
+            cooldown = 0.5f;
         }
     }
 
     private void Return()
     {
         gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up, ForceMode2D.Impulse);
+    }
+
+    void Cooldown()
+    {
+        cooldown -= Time.deltaTime;
+
+        if (cooldown <= 0)
+        {
+            CanAtk = true;
+        }
     }
 }
