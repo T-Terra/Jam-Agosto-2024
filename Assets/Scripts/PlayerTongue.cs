@@ -16,6 +16,11 @@ public class PlayerTongue : MonoBehaviour
     public int bombHit;
 
     //da animação de "ataque"
+    public AudioSource AudioDonut;
+    public AudioClip ClipDonut;
+
+    public AudioSource AudioBomb;
+    public AudioClip ClipBomb;
     private Animator playerAnim;
     SpawnManager SpawnManager_;
 
@@ -46,7 +51,6 @@ public class PlayerTongue : MonoBehaviour
         score.text = points.ToString();
         score_gameover.text = points.ToString();
         level_.text = $"AREA {SpawnManager_.level.ToString()}";
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -54,12 +58,14 @@ public class PlayerTongue : MonoBehaviour
         if (collision.gameObject.CompareTag("Donut")){
             points += 10 * streak;
             streak += 1;
+            AudioDonut.PlayOneShot(ClipDonut);
             Destroy(collision.gameObject);
         }
         if (collision.gameObject.CompareTag("Bomb")){
             points -= 20;
             streak = 1;
             bombHit += 1;
+            AudioBomb.PlayOneShot(ClipBomb);
             Destroy(collision.gameObject);
         }
     }
