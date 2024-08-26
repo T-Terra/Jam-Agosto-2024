@@ -7,6 +7,7 @@ public class PlayerTongue : MonoBehaviour
     public static PlayerTongue Instance { get; private set; }
 
     public TextMeshProUGUI score;
+    public TextMeshProUGUI score_gameover;
     public TextMeshProUGUI level_;
     public int points = 0;
     private int streak; //Usar para mecânica de aumentar pontuação conforme acertos consecutivos.
@@ -42,7 +43,8 @@ public class PlayerTongue : MonoBehaviour
     {
         Attack();
         Cooldown();
-        score.text = "Score: " + points.ToString();
+        score.text = points.ToString();
+        score_gameover.text = points.ToString();
         level_.text = $"AREA {SpawnManager_.level.ToString()}";
 
     }

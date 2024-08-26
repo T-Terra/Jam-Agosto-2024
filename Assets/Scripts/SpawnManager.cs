@@ -22,13 +22,12 @@ public class SpawnManager : MonoBehaviour
     private GameObject[] DunotObj;
     private GameObject[] BombObj;
     public GameObject gameover_;
+    public GameObject GamePlayeObj;
     public GameObject spawn;
     public GameObject player;
     public GameObject BarTimer;
     PlayerTongue playerTongue;
 
-
-    
 
     // Start is called before the first frame update
     void Start()
@@ -114,6 +113,7 @@ public class SpawnManager : MonoBehaviour
     }
     private void GameOver()
     {
+        GamePlayeObj.SetActive(false);
         BarTimer.SetActive(false);
         spawn.SetActive(false);
         player.SetActive(false);
