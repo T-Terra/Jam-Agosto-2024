@@ -55,11 +55,17 @@ public class SpawnManager : MonoBehaviour
         var RandomSpawn = Random.Range(MinRange, MaxRange);
         if (RandomSpawn <= 3)
         {
-            GameObject newObject = Instantiate(BombPrefab, this.transform.position, Quaternion.identity, this.transform);
+            if (this.transform.childCount == 0)
+            {
+                GameObject newObject = Instantiate(BombPrefab, this.transform.position, Quaternion.identity, this.transform);
+            }
         }
         else
         {
-            GameObject newObject = Instantiate(DunotPrefab, this.transform.position, Quaternion.identity, this.transform);
+            if (this.transform.childCount == 0)
+            {
+                GameObject newObject = Instantiate(DunotPrefab, this.transform.position, Quaternion.identity, this.transform);
+            }
         }
     }
 
