@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class PlayerTongue : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class PlayerTongue : MonoBehaviour
     private int streak; //Usar para mecânica de aumentar pontuação conforme acertos consecutivos.
     public float cooldown = 0.5f;
     public bool CanAtk = true;
-    public int bombHit;
+    public float bombHit;
 
     //da animação de "ataque"
     public AudioSource AudioDonut;
@@ -23,6 +24,8 @@ public class PlayerTongue : MonoBehaviour
     public AudioClip ClipBomb;
     private Animator playerAnim;
     SpawnManager SpawnManager_;
+    private bool bombCollision;
+    private bool donutCollision;
 
     private void Awake()
     {
@@ -51,22 +54,38 @@ public class PlayerTongue : MonoBehaviour
         score.text = points.ToString();
         score_gameover.text = points.ToString();
         level_.text = $"AREA {SpawnManager_.level.ToString()}";
+        if (playerAnim.GetBool("gotDonut") || playerAnim.GetBool("gotBomb"))
+        {
+            StartCoroutine(ResetCollisionAnimations());
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Donut")){
-            points += 10 * streak;
+        if (collision.gameObject.CompareTag("Donut") && !donutCollision)
+        {
+            donutCollision = true;
+            points += 10 * streak / 2;
             streak += 1;
             AudioDonut.PlayOneShot(ClipDonut);
+            playerAnim.SetBool("gotDonut", true);
+            playerAnim.SetBool("gotBomb", false);
             Destroy(collision.gameObject);
+            print(streak);
+            donutCollision = false;
         }
-        if (collision.gameObject.CompareTag("Bomb")){
+        else if (collision.gameObject.CompareTag("Bomb") && !bombCollision)
+        {
+            bombCollision = true;
             points -= 20;
             streak = 1;
-            bombHit += 1;
+            bombHit += 0.5f;
             AudioBomb.PlayOneShot(ClipBomb);
             Destroy(collision.gameObject);
+            playerAnim.SetBool("gotBomb", true);
+            playerAnim.SetBool("gotDonut", false);
+            print(bombHit);
+            bombCollision = false;
         }
     }
 
@@ -89,6 +108,13 @@ public class PlayerTongue : MonoBehaviour
     {
         gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up, ForceMode2D.Impulse);
         playerAnim.SetBool("Atk", false);
+    }
+
+    private IEnumerator ResetCollisionAnimations()
+    {
+        yield return new WaitForSeconds(0.2f);
+        playerAnim.SetBool("gotDonut", false);
+        playerAnim.SetBool("gotBomb", false);
     }
 
     void Cooldown()
