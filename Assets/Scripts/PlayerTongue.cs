@@ -9,6 +9,7 @@ public class PlayerTongue : MonoBehaviour
 
     public TextMeshProUGUI score;
     public TextMeshProUGUI score_gameover;
+    public TextMeshProUGUI high_score;
     public TextMeshProUGUI level_;
     public int points = 0;
     private int streak; //Usar para mecânica de aumentar pontuação conforme acertos consecutivos.
@@ -27,6 +28,8 @@ public class PlayerTongue : MonoBehaviour
     private bool bombCollision;
     private bool donutCollision;
 
+    private int SavedHighScore_;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -41,6 +44,7 @@ public class PlayerTongue : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        SavedHighScore_ = GetHighScore();
         playerAnim = this.gameObject.GetComponent<Animator>();
         streak = 1;
         SpawnManager_ = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
@@ -53,6 +57,8 @@ public class PlayerTongue : MonoBehaviour
         Cooldown();
         score.text = points.ToString();
         score_gameover.text = points.ToString();
+        SaveHighScore();
+        high_score.text = GetHighScore().ToString();
         level_.text = $"AREA {SpawnManager_.level.ToString()}";
         if (playerAnim.GetBool("gotDonut") || playerAnim.GetBool("gotBomb"))
         {
@@ -125,5 +131,17 @@ public class PlayerTongue : MonoBehaviour
         {
             CanAtk = true;
         }
+    }
+
+    private void SaveHighScore() {
+        if(points > SavedHighScore_) {
+            PlayerPrefs.SetInt("highScore", points);
+            PlayerPrefs.Save();
+        }
+    }
+
+    private int GetHighScore() {
+        var savedHighScore = PlayerPrefs.GetInt("highScore");
+        return savedHighScore;
     }
 }
