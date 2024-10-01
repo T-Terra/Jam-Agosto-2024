@@ -8,6 +8,7 @@ TagManager:
   - Bomb
   - SpawnManager
   - Manager
+  - GotBomb
   layers:
   - Default
   - TransparentFX

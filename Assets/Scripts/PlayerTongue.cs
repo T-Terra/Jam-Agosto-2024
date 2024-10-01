@@ -16,6 +16,7 @@ public class PlayerTongue : MonoBehaviour
     public float cooldown = 0.5f;
     public bool CanAtk = true;
     public float bombHit;
+    public GameObject[] Fails;
 
     //da animação de "ataque"
     public AudioSource AudioDonut;
@@ -41,7 +42,7 @@ public class PlayerTongue : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         SavedHighScore_ = GetHighScore();
@@ -50,11 +51,12 @@ public class PlayerTongue : MonoBehaviour
         SpawnManager_ = GameObject.FindGameObjectWithTag("SpawnManager").GetComponent<SpawnManager>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         Attack();
         Cooldown();
+        Chances();
         score.text = points.ToString();
         score_gameover.text = points.ToString();
         SaveHighScore();
@@ -77,7 +79,7 @@ public class PlayerTongue : MonoBehaviour
             playerAnim.SetBool("gotDonut", true);
             playerAnim.SetBool("gotBomb", false);
             Destroy(collision.gameObject);
-            print(streak);
+            //print(streak);
             donutCollision = false;
         }
         else if (collision.gameObject.CompareTag("Bomb") && !bombCollision)
@@ -94,8 +96,6 @@ public class PlayerTongue : MonoBehaviour
             bombCollision = false;
         }
     }
-
-   
 
     private void Attack()
     {
@@ -144,4 +144,13 @@ public class PlayerTongue : MonoBehaviour
         var savedHighScore = PlayerPrefs.GetInt("highScore");
         return savedHighScore;
     }
+    private void Chances()
+    {
+        if (bombHit > 0)
+        {
+            var bhi = System.Convert.ToInt32(bombHit);
+            Fails[bhi-1].SetActive(true);
+        } 
+    }
+
 }
